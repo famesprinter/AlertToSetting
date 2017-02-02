@@ -12,14 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let alert = UIAlertController (title: "Message",
+                                       message: "You disable location",
+                                       preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Open Setting", style: .default) { (_) -> Void in
+            // Go to setting
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        present(alert, animated: true, completion: nil)
     }
-
 
 }
 
