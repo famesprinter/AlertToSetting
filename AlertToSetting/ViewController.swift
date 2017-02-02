@@ -22,7 +22,7 @@ class ViewController: UIViewController {
                                        preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Open Setting", style: .default) { (action) -> Void in
-            if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+            if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
                 UIApplication.shared.openURL(url as URL)
             }
         })
