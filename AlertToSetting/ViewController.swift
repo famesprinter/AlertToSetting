@@ -9,27 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    // MAKR: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    // MARK: - Function
+    func alertSetting() {
         let alert = UIAlertController (title: "Message",
                                        message: "You disable location",
                                        preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Open Setting", style: .default) { (_) -> Void in
-            // Go to setting
+        alert.addAction(UIAlertAction(title: "Open Setting", style: .default) { (action) -> Void in
+            if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.openURL(url as URL)
+            }
         })
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         present(alert, animated: true, completion: nil)
     }
 
+    // MARK: - IBAction
+    @IBAction func alertToSetting() {
+        alertSetting()
+    }
 }
 
